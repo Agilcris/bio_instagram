@@ -6,332 +6,87 @@
 <title>AgilCRis Consultoria – Cris Grazy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Mantendo seu estilo original que é excelente */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --gold: #C9963A;
-    --gold-light: #E8C07A;
-    --gold-pale: #F5E6C8;
-    --cream: #FDF8F0;
-    --dark: #1A1208;
-    --charcoal: #2E2416;
-    --text: #3D2E12;
-    --muted: #7A6A4F;
+    --gold: #C9963A; --gold-light: #E8C07A; --gold-pale: #F5E6C8;
+    --cream: #FDF8F0; --dark: #1A1208; --charcoal: #2E2416;
+    --text: #3D2E12; --muted: #7A6A4F;
   }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* NOISE TEXTURE OVERLAY */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 1000; opacity: 0.4;
-  }
-
-  .container {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    text-align: center;
-    padding: 48px 0 36px;
-    position: relative;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20px; left: 50%; transform: translateX(-50%);
-    width: 320px; height: 320px;
-    background: radial-gradient(circle, rgba(201,150,58,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .avatar-wrap {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-
-  .avatar-ring {
-    width: 84px; height: 84px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold), #8B5E15);
-    padding: 3px;
-    display: flex; align-items: center; justify-content: center;
-    animation: pulse-ring 3s ease-in-out infinite;
-  }
-
-  .avatar-inner {
-    width: 78px; height: 78px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-pale), var(--cream));
-    display: flex; align-items: center; justify-content: center;
-    font-size: 32px;
-  }
-
-  @keyframes pulse-ring {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,150,58,0.4); }
-    50% { box-shadow: 0 0 0 10px rgba(201,150,58,0); }
-  }
-
-  .badge {
-    position: absolute;
-    bottom: 0; right: -4px;
-    background: var(--gold);
-    color: white;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 3px 6px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    border: 2px solid var(--cream);
-  }
-
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--dark);
-    margin-bottom: 4px;
-  }
-
-  .hero-handle {
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .hero-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 900;
-    line-height: 1.2;
-    color: var(--dark);
-    margin-bottom: 16px;
-    animation: fadeUp 0.7s ease both;
-  }
-
-  .hero-headline span {
-    color: var(--gold);
-    display: block;
-  }
-
-  .hero-sub {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--muted);
-    max-width: 340px;
-    margin: 0 auto 32px;
-    font-weight: 400;
-    animation: fadeUp 0.7s 0.15s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── MAIN CTA ── */
-  .cta-main {
-    display: block;
-    background: linear-gradient(135deg, #C9963A 0%, #E8C07A 50%, #C9963A 100%);
-    background-size: 200% 200%;
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 18px 28px;
-    border-radius: 16px;
-    text-align: center;
-    margin-bottom: 10px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeUp 0.7s 0.3s ease both, shimmer 3s 1.5s ease infinite;
-    box-shadow: 0 8px 32px rgba(201,150,58,0.4), 0 2px 8px rgba(201,150,58,0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .cta-main:hover, .cta-main:active {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(201,150,58,0.5);
-  }
-
-  @keyframes shimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .cta-main-label {
-    font-size: 11px;
-    font-weight: 400;
-    display: block;
-    opacity: 0.7;
-    margin-bottom: 2px;
-    letter-spacing: 0.5px;
-  }
-
-  /* ── SERVICE BUTTONS ── */
-  .section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    margin: 28px 0 14px;
-    animation: fadeUp 0.7s 0.5s ease both;
-  }
-
-  .btn-service {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    text-decoration: none;
-    background: white;
-    border: 1.5px solid rgba(201,150,58,0.2);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 10px;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    animation: fadeUp 0.7s ease both;
-  }
-
-  .btn-service:hover, .btn-service:active {
-    border-color: var(--gold);
-    background: var(--gold-pale);
-    transform: translateX(4px);
-    box-shadow: 0 4px 20px rgba(201,150,58,0.2);
-  }
-
-  .btn-icon {
-    width: 40px; height: 40px;
-    background: linear-gradient(135deg, var(--gold-pale), rgba(201,150,58,0.15));
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-    border: 1px solid rgba(201,150,58,0.2);
-  }
-
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
+  .profile-container { text-align: center; margin-bottom: 32px; }
+  .profile-pic { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--gold); margin-bottom: 16px; object-fit: cover; }
+  .profile-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--dark); }
+  .profile-bio { font-size: 0.9rem; color: var(--muted); margin-top: 8px; max-width: 280px; }
+  .links-container { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 16px; }
+  .btn-service { background: #fff; border: 1px solid var(--gold-pale); border-radius: 16px; padding: 18px; display: flex; align-items: center; text-decoration: none; color: inherit; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(201, 150, 58, 0.08); }
+  .btn-service:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 8px 24px rgba(201, 150, 58, 0.15); }
+  .btn-icon { width: 48px; height: 48px; background: var(--gold-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 16px; }
   .btn-text { flex: 1; }
-  .btn-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--dark); }
-  .btn-text span { font-size: 12px; color: var(--muted); font-weight: 400; }
-
-  .btn-arrow {
-    color: var(--gold);
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    text-align: center;
-    padding: 24px 0 0;
-    font-size: 11px;
-    color: var(--muted);
-    animation: fadeUp 0.7s 1s ease both;
-  }
-
-  .footer a { color: var(--gold); text-decoration: none; }
-
+  .btn-text strong { display: block; font-size: 1rem; color: var(--dark); margin-bottom: 2px; }
+  .btn-text span { font-size: 0.8rem; color: var(--muted); }
+  .btn-arrow { font-size: 1.2rem; color: var(--gold); opacity: 0.5; }
+  footer { margin-top: auto; padding-top: 40px; text-align: center; font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; }
 </style>
 </head>
 <body>
-<div class="container">
 
-  <section class="hero">
-    <div class="avatar-wrap">
-      <div class="avatar-ring">
-        <div class="avatar-inner" style="overflow:hidden;padding:0;">
-          <img src="https://github.com/identicons/agilcris.png" style="width:100%;height:100%;object-fit:cover;" alt="Cris Grazy">
-        </div>
-      </div>
-      <span class="badge">✓ Oficial</span>
-    </div>
-
-    <h1 class="hero-name">Cris Grazy</h1>
-    <p class="hero-handle">AgilCRis Consultoria</p>
-
-    <h2 class="hero-headline">
-      Gestão inteligente para
-      <span>o seu negócio 📈</span>
-    </h2>
-
-    <p class="hero-sub">
-      Economista e Consultora especializada em transformar o caos financeiro em lucro real.
-    </p>
-
-    <a href="https://wa.me/5511980394632?text=Ol%C3%A1%20Cris!%20Quero%20fazer%20uma%20simula%C3%A7%C3%A3o." class="cta-main">
-      <span class="cta-main-label">👉 Planejamento Gratuito</span>
-      🔥 Simular meu Consórcio Agora
-    </a>
-  </section>
-
-  <div class="section-label">Soluções Exclusivas</div>
-
-  <a href="jogos.html" class="btn-service">
-    <div class="btn-icon">🎮</div>
-    <div class="btn-text">
-      <strong>Controle de Vícios (Jogos)</strong>
-      <span>Ferramenta de recuperação e gestão</span>
-    </div>
-    <span class="btn-arrow">→</span>
-  </a>
-
-  <a href="fechamento.html" class="btn-service">
-    <div class="btn-icon">⚠️</div>
-    <div class="btn-text">
-      <strong>Baixa de Empresas</strong>
-      <span>Regularize seu CPF e encerre ciclos</span>
-    </div>
-    <span class="btn-arrow">→</span>
-  </a>
-
-  <a href="https://wa.me/5511980394632?text=Quero%20consultoria%20para%20meu%20neg%C3%B3cio!" class="btn-service">
-    <div class="btn-icon">🛠️</div>
-    <div class="btn-text">
-      <strong>Mecânicas, Salões e Festas</strong>
-      <span>Gestão financeira personalizada por nicho</span>
-    </div>
-    <span class="btn-arrow">→</span>
-  </a>
-
-  <a href="https://wa.me/5511980394632?text=Quero%20conhecer%20as%20planilhas%20AgilCRis!" class="btn-service">
-    <div class="btn-icon">📊</div>
-    <div class="btn-text">
-      <strong>Planilhas de Finanças</strong>
-      <span>Domine seu fluxo de caixa</span>
-    </div>
-    <span class="btn-arrow">→</span>
-  </a>
-
-  <div class="footer">
-    <p><strong>AgilCRis Consultoria Fiscal & Financeira</strong></p>
-    <p>CNPJ: 54.893.633/0001-38</p>
-    <p style="margin-top:10px;"><a href="https://www.instagram.com/agilcris_gestao/">@agilcris_gestao</a></p>
+  <div class="profile-container">
+    <div class="profile-name">AgilCRis Consultoria</div>
+    <div class="profile-bio">Especialista em Gestão Financeira, E-commerce e Regularização de Empresas.</div>
   </div>
 
-</div>
+  <div class="links-container">
+    <a href="https://agilcris.github.io/lucrando-com-consorcio/" class="btn-service">
+      <div class="btn-icon">💰</div>
+      <div class="btn-text">
+        <strong>Método AgilCRis (Consórcios)</strong>
+        <span>Construa seu patrimônio com estratégia</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a href="https://agilcris.github.io/controle_financeiro_e-comercio/" class="btn-service">
+      <div class="btn-icon">🛒</div>
+      <div class="btn-text">
+        <strong>Planilha GOLD E-Commerce 2026</strong>
+        <span>Controle real de lucro para Shopee e ML</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a href="https://agilcris.github.io/fechamento_empresas-XLSX/" class="btn-service">
+      <div class="btn-icon">⚠️</div>
+      <div class="btn-text">
+        <strong>Baixa de Empresas (Regularização)</strong>
+        <span>Encerre ciclos e proteja seu CPF</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a href="https://agilcris.github.io/controle-vicio-em-apostas/" class="btn-service">
+      <div class="btn-icon">🎮</div>
+      <div class="btn-text">
+        <strong>Controle de Vícios</strong>
+        <span>Gestão e apoio para recuperação</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a href="https://wa.me/5511980394632?text=Olá! Gostaria de uma consultoria personalizada." class="btn-service">
+      <div class="btn-icon">🛠️</div>
+      <div class="btn-text">
+        <strong>Consultoria Personalizada</strong>
+        <span>Mecânicas, Salões e Negócios Locais</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+  </div>
+
+  <footer>
+    AGILCRIS CONSULTORIA • 2026<br>
+    Carapicuíba - SP
+  </footer>
+
 </body>
 </html>

@@ -1,139 +1,193 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgilCRis Consultoria | Bio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8f7f2; 
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --text-main: #1a1a1a;
+            --text-sub: #555;
+            --accent-glow: rgba(255, 255, 255, 0.9);
+        }
 
-<title>AgilCris | Consultoria Financeira</title>
-<meta name="description" content="Planilhas financeiras, consórcios e regularização com estratégia.">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-main);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        /* --- Botão Voltar Ajustado --- */
+        .btn-voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
 
-<style>
-:root {
-  --bg: #F6F4EF;
-  --card: #FFFFFF;
-  --primary: #2D2A26;
-  --accent: #D4AF37;
-  --highlight: #EAE3D5;
-  --text: #1F1F1F;
-}
+        .btn-voltar:hover {
+            background: #ffffff;
+            transform: translateX(-3px);
+        }
 
-body {
-  margin: 0;
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-}
+        .container {
+            width: 90%;
+            max-width: 450px;
+            padding: 60px 0; /* Espaço para o botão voltar */
+            text-align: center;
+        }
 
-.screen {
-  display: none;
-  padding: 20px;
-}
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
 
-.active {
-  display: block;
-}
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
+        /* --- Cards com Brilho e Efeito Vidro --- */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
 
-.subtitle {
-  margin-bottom: 15px;
-}
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
 
-.card {
-  background: var(--card);
-  padding: 16px;
-  border-radius: 18px;
-  margin: 10px 0;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-  border: 1px solid #F0ECE6;
-  transition: 0.2s ease;
-}
+        /* --- Ícones com Gradiente Suave --- */
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
 
-.card:hover {
-  transform: translateY(-3px) scale(1.01);
-}
+        .content { text-align: left; }
 
-.back {
-  margin-bottom: 15px;
-  color: var(--accent);
-  cursor: pointer;
-  font-weight: 500;
-}
+        .content h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 800; /* Peso extra pedido */
+            letter-spacing: -0.3px;
+        }
 
-.btn {
-  display: block;
-  text-align: center;
-  background: var(--accent);
-  color: white;
-  padding: 12px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-</style>
+        .content p {
+            margin: 4px 0 0;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* --- Destaque: Controle de Vícios --- */
+        .card-vicios {
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 25px var(--accent-glow);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-vicios .icon-box {
+            background: linear-gradient(135deg, #fffcf0 0%, #fff1c1 100%);
+        }
+
+        .arrow { margin-left: auto; color: #ccc; font-size: 1.2rem; }
+
+    </style>
 </head>
-
 <body>
 
-<!-- HOME -->
-<div id="home" class="screen active">
-  <h1>AgilCris</h1>
-  <div class="subtitle">Organize sua vida financeira com estratégia</div>
+    <a href="javascript:history.back()" class="btn-voltar">
+        <span>←</span> Voltar
+    </a>
 
-  <a href="https://instagram.com/SEUUSUARIO" target="_blank" class="btn">
-    Acompanhar no Instagram
-  </a>
+    <div class="container">
+        <h1>AgilCRis Consultoria</h1>
+        <p class="subtitle">Especialista em Gestão Financeira, E-commerce e Regularização de Empresas.</p>
 
-  <div class="card" onclick="go('planilhas')">
-    Planilhas Inteligentes →
-  </div>
+        <a href="#" class="card">
+            <div class="icon-box">💰</div>
+            <div class="content">
+                <h3>Método AgilCRis (Consórcios)</h3>
+                <p>Construa seu patrimônio com estratégia</p>
+            </div>
+            <div class="arrow">→</div>
+        </a>
 
-  <div class="card" onclick="go('consorcio')">
-    Consórcios →
-  </div>
+        <a href="#" class="card">
+            <div class="icon-box">🛒</div>
+            <div class="content">
+                <h3>Planilha GOLD E-Commerce 2026</h3>
+                <p>Controle real de lucro para Shopee e ML</p>
+            </div>
+            <div class="arrow">→</div>
+        </a>
 
-  <div class="card" onclick="go('fiscal')">
-    Regularização →
-  </div>
-</div>
+        <a href="#" class="card">
+            <div class="icon-box">⚠️</div>
+            <div class="content">
+                <h3>Baixa de Empresas (Regularização)</h3>
+                <p>Encerre ciclos e proteja seu CPF</p>
+            </div>
+            <div class="arrow">→</div>
+        </a>
 
-<!-- PLANILHAS -->
-<div id="planilhas" class="screen">
-  <div class="back" onclick="go('home')">← Voltar</div>
-  <h1>Planilhas</h1>
-  <p>Produtos para organizar sua vida financeira.</p>
-</div>
-
-<!-- CONSORCIO -->
-<div id="consorcio" class="screen">
-  <div class="back" onclick="go('home')">← Voltar</div>
-  <h1>Consórcios</h1>
-  <p>Realize seus objetivos com estratégia.</p>
-</div>
-
-<!-- FISCAL -->
-<div id="fiscal" class="screen">
-  <div class="back" onclick="go('home')">← Voltar</div>
-  <h1>Regularização</h1>
-  <p>Soluções fiscais e organização empresarial.</p>
-</div>
-
-<script>
-function go(tela) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(tela).classList.add('active');
-}
-</script>
+        <a href="#" class="card card-vicios">
+            <div class="icon-box">🎮</div>
+            <div class="content">
+                <h3>Controle de Vícios</h3>
+                <p>Gestão e apoio especializado</p>
+            </div>
+            <div class="arrow">→</div>
+        </a>
+    </div>
 
 </body>
 </html>

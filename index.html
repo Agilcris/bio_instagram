@@ -43,10 +43,39 @@
     padding: 0 20px 60px;
   }
 
+  /* ── BOTÃO VOLTAR MELHORADO ── */
+  .btn-voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: var(--muted);
+    background: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 2000;
+    border: 1px solid rgba(201,150,58,0.15);
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-voltar:hover {
+    color: var(--gold);
+    transform: translateX(-3px);
+    border-color: var(--gold);
+  }
+
   /* ── HERO ── */
   .hero {
     text-align: center;
-    padding: 48px 0 36px;
+    padding: 60px 0 36px; /* Espaço para o botão voltar */
     position: relative;
   }
 
@@ -124,7 +153,6 @@
     line-height: 1.2;
     color: var(--dark);
     margin-bottom: 16px;
-    animation: fadeUp 0.7s ease both;
   }
 
   .hero-headline span {
@@ -139,15 +167,9 @@
     max-width: 340px;
     margin: 0 auto 32px;
     font-weight: 400;
-    animation: fadeUp 0.7s 0.15s ease both;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── MAIN CTA (Consórcio) ── */
+  /* ── BOTÕES E LINKS ── */
   .cta-main {
     display: block;
     background: linear-gradient(135deg, #C9963A 0%, #E8C07A 50%, #C9963A 100%);
@@ -162,65 +184,15 @@
     margin-bottom: 10px;
     position: relative;
     overflow: hidden;
-    animation: fadeUp 0.7s 0.3s ease both, shimmer 3s 1.5s ease infinite;
-    box-shadow: 0 8px 32px rgba(201,150,58,0.4), 0 2px 8px rgba(201,150,58,0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .cta-main:hover, .cta-main:active {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(201,150,58,0.5);
+    animation: shimmer 3s ease infinite;
+    box-shadow: 0 8px 32px rgba(201,150,58,0.4);
+    transition: 0.2s;
   }
 
   @keyframes shimmer {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
-
-  .cta-main-label {
-    font-size: 11px;
-    font-weight: 400;
-    display: block;
-    opacity: 0.7;
-    margin-bottom: 2px;
-    letter-spacing: 0.5px;
-  }
-
-  /* ── BREAK TEXT ── */
-  .break-text {
-    background: linear-gradient(135deg, rgba(201,150,58,0.08), rgba(201,150,58,0.15));
-    border: 1px solid rgba(201,150,58,0.25);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin: 24px 0;
-    text-align: center;
-    animation: fadeUp 0.7s 0.45s ease both;
-  }
-
-  .break-text p:first-child {
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 15px;
-    margin-bottom: 6px;
-  }
-
-  .break-text p:last-child {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  /* ── SERVICE BUTTONS ── */
-  .section-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-    margin: 28px 0 14px;
-    animation: fadeUp 0.7s 0.5s ease both;
   }
 
   .btn-service {
@@ -238,18 +210,12 @@
     font-weight: 500;
     transition: all 0.2s;
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    animation: fadeUp 0.7s ease both;
   }
 
-  .btn-service:nth-child(1) { animation-delay: 0.55s; }
-  .btn-service:nth-child(2) { animation-delay: 0.65s; }
-  .btn-service:nth-child(3) { animation-delay: 0.75s; }
-
-  .btn-service:hover, .btn-service:active {
+  .btn-service:hover {
     border-color: var(--gold);
     background: var(--gold-pale);
     transform: translateX(4px);
-    box-shadow: 0 4px 20px rgba(201,150,58,0.2);
   }
 
   .btn-icon {
@@ -259,23 +225,15 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 18px;
     flex-shrink: 0;
-    border: 1px solid rgba(201,150,58,0.2);
   }
 
   .btn-text { flex: 1; }
   .btn-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--dark); }
   .btn-text span { font-size: 12px; color: var(--muted); font-weight: 400; }
 
-  .btn-arrow {
-    color: var(--gold);
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  /* ── TRUST ── */
   .divider {
     display: flex; align-items: center; gap: 12px;
-    margin: 24px 0 16px;
+    margin: 32px 0 16px;
     color: var(--muted);
     font-size: 11px;
     letter-spacing: 1px;
@@ -283,8 +241,7 @@
   }
   .divider::before, .divider::after {
     content: '';
-    flex: 1;
-    height: 1px;
+    flex: 1; height: 1px;
     background: linear-gradient(to right, transparent, rgba(201,150,58,0.3), transparent);
   }
 
@@ -292,7 +249,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
 
   .trust-item {
@@ -301,31 +258,20 @@
     border-radius: 12px;
     padding: 14px 10px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
 
   .trust-icon { font-size: 22px; margin-bottom: 6px; }
-  .trust-label { font-size: 11px; font-weight: 600; color: var(--dark); line-height: 1.3; }
+  .trust-label { font-size: 11px; font-weight: 600; color: var(--dark); }
 
-  /* ── FINAL CTA ── */
   .final-cta {
     background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark) 100%);
     border-radius: 20px;
     padding: 28px 24px;
     text-align: center;
     margin-top: 28px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeUp 0.7s 0.9s ease both;
   }
 
-  .final-cta p {
-    font-size: 16px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.5;
-    margin-bottom: 20px;
-    font-weight: 300;
-  }
+  .final-cta p { color: white; font-size: 15px; margin-bottom: 20px; }
 
   .cta-final-btn {
     display: inline-block;
@@ -333,26 +279,22 @@
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
     color: var(--dark);
     font-weight: 700;
-    font-size: 14px;
     padding: 14px 28px;
     border-radius: 12px;
-    transition: all 0.2s;
     box-shadow: 0 4px 20px rgba(201,150,58,0.35);
   }
 
-  .cta-final-btn:hover { transform: translateY(-2px); }
-
-  /* ── FOOTER ── */
-  .footer {
-    text-align: center;
-    padding: 24px 0 0;
-    font-size: 11px;
-    color: var(--muted);
-  }
+  .footer { text-align: center; padding: 24px 0 0; font-size: 11px; color: var(--muted); }
   .footer a { color: var(--gold); text-decoration: none; }
+
 </style>
 </head>
 <body>
+
+<a href="#" onclick="window.history.length > 1 ? window.history.back() : window.location.href='https://agilcris.github.io/bio_isntagran/';" class="btn-voltar">
+  <span>←</span> Voltar
+</a>
+
 <div class="container">
 
   <section class="hero">
@@ -383,12 +325,7 @@
     </a>
   </section>
 
-  <div class="break-text">
-    <p>Não sabe por onde começar?</p>
-    <p>Eu te explico de forma simples, sem pressão e sem complicação. É só clicar em um dos links abaixo 😊</p>
-  </div>
-
-  <div class="section-label">Nossas Soluções Digitais</div>
+  <div class="divider">Nossas Soluções Digitais</div>
 
   <a href="https://agilcris.github.io/controle_financeiro_e-comercio/" class="btn-service">
     <div class="btn-icon">📊</div>
@@ -396,7 +333,6 @@
       <strong>Planilha E-commerce</strong>
       <span>Controle de lucro para Shopee e ML</span>
     </div>
-    <span class="btn-arrow">→</span>
   </a>
 
   <a href="https://agilcris.github.io/fechamento_empresas-XLSX/" class="btn-service">
@@ -405,7 +341,6 @@
       <strong>Baixa de Empresas</strong>
       <span>Regularização e proteção do CPF</span>
     </div>
-    <span class="btn-arrow">→</span>
   </a>
 
   <a href="https://agilcris.github.io/controle-vicio-em-apostas/" class="btn-service">
@@ -414,7 +349,6 @@
       <strong>Apoio e Transformação</strong>
       <span>Controle de vícios em apostas</span>
     </div>
-    <span class="btn-arrow">→</span>
   </a>
 
   <div class="divider">Por que confiar na AgilCRis</div>
@@ -425,7 +359,7 @@
     </div>
     <div class="trust-item">
       <div class="trust-icon">🎯</div>
-      <div class="trust-label">Soluções financeiras reais</div>
+      <div class="trust-label">Soluções reais</div>
     </div>
     <div class="trust-item">
       <div class="trust-icon">⚡</div>

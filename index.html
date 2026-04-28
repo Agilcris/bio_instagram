@@ -1,16 +1,19 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cris Grazy | AgilCris Consultoria</title>
-  <meta name="description" "No consórcio você NÃO paga juros de banco. Existe taxa de administração, fundo de reserva e outros encargos previstos em contrato — mas no total ainda sai bem mais barato que um financiamento, planilhas de gestão e consultoria financeira. Clique e conheça os serviços da AgilCRIs.">
+
+  <!-- CORREÇÃO 1: meta description com atributo content= correto -->
+  <meta name="description" content="No consórcio você NÃO paga juros de banco. Existe taxa de administração, fundo de reserva e outros encargos previstos em contrato — mas ainda sai bem mais barato que um financiamento. Planilhas de gestão e consultoria financeira. Conheça os serviços da AgilCris.">
+
   <meta property="og:title" content="Cris Grazy | AgilCris Consultoria">
-  <meta property="og:image" content="https://via.placeholder.com/400x400?text=Cris+Grazy">
+  <!-- CORREÇÃO 2: imagem real no lugar do placeholder -->
+  <meta property="og:image" content="https://github.com/Agilcris.png">
   <meta property="og:url" content="https://agilcris.github.io/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CORREÇÃO 3: fonte importada uma única vez (estava duplicada) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -33,6 +36,8 @@
       color: var(--text);
       min-height: 100vh;
       display: flex;
+      /* CORREÇÃO 4: align-items flex-start para não centralizar verticalmente em telas altas */
+      align-items: flex-start;
       justify-content: center;
       overflow-x: hidden;
     }
@@ -56,7 +61,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: white; overflow: hidden; }
     .avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
-    
+
     .dot-online {
       position: absolute; bottom: 3px; right: 3px;
       width: 15px; height: 15px; background: #22C55E;
@@ -78,18 +83,30 @@
       background: white; color: var(--text); transition: 0.22s ease;
       position: relative; overflow: hidden;
     }
-    
+    .link-btn:not(.highlight):hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 18px rgba(201,150,58,0.12);
+      transform: translateY(-2px);
+    }
+
     .link-btn.highlight {
       background: linear-gradient(135deg, #B8821F 0%, #E8C07A 50%, #C9963A 100%);
       background-size: 200% 200%; border-color: transparent;
       box-shadow: 0 8px 28px rgba(201,150,58,0.35); color: var(--dark);
+      /* CORREÇÃO 5: animação shimmer adicionada (estava faltando no botão destaque) */
+      animation: shimmer 4s ease infinite;
     }
+    @keyframes shimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
     .link-btn.highlight::before {
       content: ''; position: absolute; top: 0; left: -80%; width: 55%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       animation: sweep 3.5s ease-in-out infinite;
     }
     @keyframes sweep { 0%{left:-80%} 60%,100%{left:140%} }
+
+    /* CORREÇÃO 6: sub-texto do botão highlight em cor legível sobre fundo dourado */
+    .link-btn.highlight .link-sub { color: rgba(40,25,5,0.65); }
 
     .link-icon { font-size: 22px; width: 30px; text-align: center; }
     .link-body { flex: 1; }
@@ -114,7 +131,8 @@
     .final-cta strong { color: var(--gold-light); }
     .cta-final-btn { display: inline-block; text-decoration: none; background: var(--gold); color: var(--dark); font-weight: 700; padding: 12px 24px; border-radius: 10px; }
 
-    .footer { text-align: center; margin-top: 30px; font-size: 11px; color: var(--muted); }
+    .footer { text-align: center; margin-top: 30px; font-size: 11px; color: var(--muted); line-height: 1.8; }
+    .disclaimer { font-size: 10px; color: #aaa; margin-top: 12px; line-height: 1.6; max-width: 340px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
@@ -124,27 +142,34 @@
     <div class="avatar-wrap">
       <div class="avatar-ring">
         <div class="avatar-inner">
-          <img src="https://github.com/Agilcris.png" alt="Cris Grazy">
+          <img src="https://github.com/Agilcris.png" alt="Cris Grazy – Consultora Financeira AgilCris">
         </div>
       </div>
-      <span class="dot-online"></span>
+      <span class="dot-online" title="Online agora"></span>
     </div>
     <h1 class="profile-name">Cris Grazy</h1>
     <p class="profile-handle">@agilcris_gestao</p>
-    <p class="profile-bio">Consultora financeira 💰<br>Consórcio sem juros · Planilhas · Gestão</p>
+    <!-- CORREÇÃO 7: bio sem "sem juros" isolado — menciona taxa -->
+    <p class="profile-bio">Consultora financeira 💰<br>Consórcio sem juros bancários*<br>Planilhas · Gestão · Regularização</p>
+    <p style="font-size:10px;color:var(--muted);margin-top:4px;">*Sujeito a taxas contratuais</p>
     <div class="badge-clientes">⭐ +87 clientes atendidos</div>
   </div>
 
   <div class="links">
-    <a href="https://agilcris.github.io/lucrando-com-consorcio/" class="link-btn highlight">
+
+    <a href="https://agilcris.github.io/lucrando-com-consorcio/"
+       class="link-btn highlight"
+       aria-label="Simular consórcio grátis">
       <span class="link-icon">🔥</span>
       <div class="link-body">
         <strong class="link-label">Simular Consórcio — Grátis</strong>
-        <span class="link-sub">Carro ou imóvel sem juros bancários</span>
+        <span class="link-sub">✅ Sem juros bancários · ⚠️ Sujeito a taxas de administração</span>
       </div>
     </a>
 
-    <a href="https://agilcris.github.io/controle_financeiro_e-comercio/" class="link-btn">
+    <a href="https://agilcris.github.io/controle_financeiro_e-comercio/"
+       class="link-btn"
+       aria-label="Planilha de controle financeiro para e-commerce">
       <span class="link-icon">📊</span>
       <div class="link-body">
         <strong class="link-label">Planilha E-commerce</strong>
@@ -152,7 +177,10 @@
       </div>
     </a>
 
-    <a href="https://wa.me/5511980394632" class="link-btn">
+    <!-- WhatsApp com mensagem pré-preenchida -->
+    <a href="https://wa.me/5511980394632?text=Oi%20Cris%2C%20vim%20pelo%20Instagram!%20Quero%20saber%20mais."
+       class="link-btn"
+       aria-label="Falar com Cris Grazy no WhatsApp">
       <span class="link-icon">💬</span>
       <div class="link-body">
         <strong class="link-label">Falar no WhatsApp</strong>
@@ -162,7 +190,9 @@
 
     <div class="section-label">Serviços Especializados</div>
 
-    <a href="https://agilcris.github.io/fechamento_empresas-XLSX/" class="link-btn">
+    <a href="https://agilcris.github.io/fechamento_empresas-XLSX/"
+       class="link-btn"
+       aria-label="Baixa de empresas e regularização de CNPJ">
       <span class="link-icon">⚖️</span>
       <div class="link-body">
         <strong class="link-label">Baixa de Empresas</strong>
@@ -170,13 +200,16 @@
       </div>
     </a>
 
-    <a href="https://agilcris.github.io/controle-vicio-em-apostas/" class="link-btn">
+    <a href="https://agilcris.github.io/controle-vicio-em-apostas/"
+       class="link-btn"
+       aria-label="Apoio para controle de vícios e organização financeira">
       <span class="link-icon">🛡️</span>
       <div class="link-body">
         <strong class="link-label">Reeducação Financeira</strong>
         <span class="link-sub">Transformação e Metas Reais</span>
       </div>
     </a>
+
   </div>
 
   <div class="trust-grid">
@@ -186,11 +219,21 @@
   </div>
 
   <div class="final-cta">
-    <p>Comece hoje a <strong>sair dos juros</strong>. Nossa equipe está pronta para te guiar. ✨</p>
-    <a href="https://wa.me/5511980394632" class="cta-final-btn">💬 Falar com um representante</a>
+    <p>Comece hoje a <strong>sair dos juros</strong>. Estou pronta para te guiar. ✨</p>
+    <!-- CORREÇÃO: "nossa equipe" → "estou pronta" (você trabalha sozinha) -->
+    <a href="https://wa.me/5511980394632?text=Oi%20Cris%2C%20vim%20pelo%20Instagram!%20Quero%20saber%20mais."
+       class="cta-final-btn"
+       aria-label="Falar com Cris no WhatsApp">
+      💬 Falar com a Cris agora
+    </a>
   </div>
 
-  <div class="footer">AgilCRis Consultoria · @agilcris_gestao</div>
+  <div class="footer">
+    <p>AgilCris Consultoria · <a href="https://instagram.com/agilcris_gestao" style="color:var(--gold);text-decoration:none">@agilcris_gestao</a></p>
+    <!-- Aviso legal consórcio -->
+    <p class="disclaimer">⚠️ <strong>Consórcio não possui juros bancários</strong>, porém está sujeito a taxa de administração, fundo de reserva e demais encargos previstos em contrato. A economia em relação ao financiamento bancário pode variar. Consulte todas as condições antes de contratar.</p>
+  </div>
+
 </div>
 </body>
 </html>

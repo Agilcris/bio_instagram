@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cris Grazy | AgilCris Consultoria</title>
   <meta name="description" content="Consórcio sem juros, planilhas de gestão e consultoria financeira. Clique e conheça os serviços da Cris Grazy.">
-  <meta property="og:title" content="Cris Grazy | AgilCris Consultoria">
-  <meta property="og:image" content="https://via.placeholder.com/400x400?text=Cris+Grazy">
-  <meta property="og:url" content="https://agilcris.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -30,27 +27,8 @@
       color: var(--text);
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: -150px; right: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,150,58,0.10) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -150px; left: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,150,58,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      overflow-x: hidden;
     }
 
     .page {
@@ -62,191 +40,88 @@
     }
 
     /* PERFIL */
-    .profile {
-      text-align: center;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 0.4s ease 0.02s forwards;
-    }
-
-    .avatar-wrap {
-      position: relative;
-      width: 84px; height: 84px;
-      margin: 0 auto 14px;
-    }
-
+    .profile { text-align: center; margin-bottom: 32px; }
+    .avatar-wrap { position: relative; width: 84px; height: 84px; margin: 0 auto 14px; }
     .avatar-ring {
-      width: 84px; height: 84px;
-      border-radius: 50%;
+      width: 84px; height: 84px; border-radius: 50%;
       background: conic-gradient(var(--gold-light) 0deg, var(--gold) 120deg, #7A4E10 200deg, var(--gold) 280deg, var(--gold-light) 360deg);
-      padding: 2.5px;
-      animation: spin 10s linear infinite;
+      padding: 2.5px; animation: spin 10s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .avatar-inner {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      background: white;
-      overflow: hidden;
-    }
-    .avatar-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
+    .avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: white; overflow: hidden; }
+    .avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
+    
     .dot-online {
-      position: absolute;
-      bottom: 3px; right: 3px;
-      width: 15px; height: 15px;
-      background: #22C55E;
-      border-radius: 50%;
-      border: 2px solid var(--cream);
+      position: absolute; bottom: 3px; right: 3px;
+      width: 15px; height: 15px; background: #22C55E;
+      border-radius: 50%; border: 2px solid var(--cream);
       animation: pulse 2s ease-in-out infinite;
     }
     @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
 
-    .profile-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 3px;
-    }
-
-    .profile-handle {
-      font-size: 12px;
-      color: var(--gold);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-    }
-
-    .profile-bio {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .badge-clientes {
-      display: inline-block;
-      background: var(--gold-pale);
-      border-radius: 20px;
-      padding: 4px 12px;
-      margin-top: 10px;
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--gold);
-    }
+    .profile-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: var(--dark); }
+    .profile-handle { font-size: 12px; color: var(--gold); font-weight: 500; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .profile-bio { font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .badge-clientes { display: inline-block; background: var(--gold-pale); border-radius: 20px; padding: 4px 12px; margin-top: 10px; font-size: 11px; font-weight: 600; color: var(--gold); }
 
     /* LINKS */
-    .links { display: flex; flex-direction: column; gap: 11px; }
-
+    .links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
     .link-btn {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-      border-radius: 16px;
-      padding: 15px 18px;
-      border: 1px solid rgba(201,150,58,0.18);
-      background: white;
-      color: var(--text);
-      transition: all 0.22s ease;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp 0.45s ease forwards;
+      display: flex; align-items: center; gap: 14px; text-decoration: none;
+      border-radius: 16px; padding: 16px; border: 1px solid rgba(201,150,58,0.18);
+      background: white; color: var(--text); transition: 0.22s ease;
+      position: relative; overflow: hidden;
     }
-    .link-btn:nth-child(1){animation-delay:0.06s}
-    .link-btn:nth-child(2){animation-delay:0.12s}
-    .link-btn:nth-child(3){animation-delay:0.18s}
-    .link-btn:nth-child(4){animation-delay:0.24s}
-    .link-btn:nth-child(5){animation-delay:0.30s}
-    .link-btn:nth-child(6){animation-delay:0.36s}
-
+    
     .link-btn.highlight {
       background: linear-gradient(135deg, #B8821F 0%, #E8C07A 50%, #C9963A 100%);
-      background-size: 200% 200%;
-      border-color: transparent;
-      box-shadow: 0 8px 28px rgba(201,150,58,0.35);
-      animation: fadeUp 0.45s ease 0.06s forwards;
-      color: var(--dark);
+      background-size: 200% 200%; border-color: transparent;
+      box-shadow: 0 8px 28px rgba(201,150,58,0.35); color: var(--dark);
     }
-    .link-btn.highlight .link-label { color: var(--dark); font-weight: 700; }
-    .link-btn.highlight .link-sub { color: rgba(40,25,5,0.60); }
-    .link-btn.highlight .link-arrow { color: var(--dark); opacity: 0.45; }
-
     .link-btn.highlight::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -80%;
-      width: 55%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      content: ''; position: absolute; top: 0; left: -80%; width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       animation: sweep 3.5s ease-in-out infinite;
     }
     @keyframes sweep { 0%{left:-80%} 60%,100%{left:140%} }
 
-    .link-btn:not(.highlight):hover {
-      border-color: var(--gold);
-      box-shadow: 0 4px 18px rgba(201,150,58,0.12);
-      transform: translateY(-2px);
-    }
-
-    .link-icon {
-      font-size: 22px;
-      flex-shrink: 0;
-      width: 40px;
-      text-align: center;
-    }
-
-    .link-body { flex: 1; text-align: left; }
-    .link-label { display: block; font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 1px; }
-    .link-sub { display: block; font-size: 11.5px; color: var(--muted); }
-
-    .link-arrow {
-      font-size: 18px;
-      color: var(--gold);
-      opacity: 0.5;
-      flex-shrink: 0;
-    }
+    .link-icon { font-size: 22px; width: 30px; text-align: center; }
+    .link-body { flex: 1; }
+    .link-label { display: block; font-size: 15px; font-weight: 600; color: var(--dark); }
+    .link-sub { display: block; font-size: 12px; color: var(--muted); }
 
     .section-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-align: center;
-      margin: 8px 0 0;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--muted); text-align: center; margin: 15px 0 5px;
       display: flex; align-items: center; gap: 10px;
     }
-    .section-label::before, .section-label::after {
-      content: ''; flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,150,58,0.22), transparent);
-    }
+    .section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(201,150,58,0.15); }
 
-    .footer {
-      text-align: center;
-      margin-top: 36px;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-    .footer a { color: var(--gold); text-decoration: none; }
+    /* TRUST GRID */
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 30px 0; }
+    .trust-item { background: white; border-radius: 12px; padding: 15px 5px; text-align: center; border: 1px solid rgba(201,150,58,0.1); }
+    .trust-label { font-size: 10px; font-weight: 600; color: var(--dark); display: block; margin-top: 5px; }
 
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+    /* FINAL CTA */
+    .final-cta { background: var(--dark); border-radius: 20px; padding: 30px 20px; text-align: center; color: white; margin-top: 20px; }
+    .final-cta p { font-size: 15px; margin-bottom: 20px; font-weight: 300; }
+    .final-cta strong { color: var(--gold-light); }
+    .cta-final-btn { display: inline-block; text-decoration: none; background: var(--gold); color: var(--dark); font-weight: 700; padding: 12px 24px; border-radius: 10px; }
+
+    .footer { text-align: center; margin-top: 30px; font-size: 11px; color: var(--muted); }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- PERFIL -->
   <div class="profile">
     <div class="avatar-wrap">
       <div class="avatar-ring">
         <div class="avatar-inner">
-          <img src="https://github.com/Agilcris.png" alt="Cris Grazy – Consultora Financeira">
+          <img src="https://github.com/Agilcris.png" alt="Cris Grazy">
         </div>
       </div>
-      <span class="dot-online" title="Online"></span>
+      <span class="dot-online"></span>
     </div>
     <h1 class="profile-name">Cris Grazy</h1>
     <p class="profile-handle">@agilcris_gestao</p>
@@ -254,82 +129,50 @@
     <div class="badge-clientes">⭐ +87 clientes atendidos</div>
   </div>
 
-  <!-- LINKS (ORDEM OTIMIZADA) -->
   <div class="links">
-
-    <!-- 1. CONSÓRCIO (DESTAQUE) -->
-    <a href="https://agilcris.github.io/lucrando-com-consorcio/"
-       class="link-btn highlight"
-       aria-label="Simular consórcio grátis">
+    <a href="https://agilcris.github.io/lucrando-com-consorcio/" class="link-btn highlight">
       <span class="link-icon">🔥</span>
       <div class="link-body">
         <strong class="link-label">Simular Consórcio — Grátis</strong>
-        <span class="link-sub">Carro, moto ou imóvel sem juros bancários</span>
+        <span class="link-sub">Carro ou imóvel sem juros bancários</span>
       </div>
-      <span class="link-arrow">›</span>
     </a>
 
-    <!-- 2. PLANILHA E-COMMERCE (PRODUTO DIGITAL) -->
-    <a href="https://agilcris.github.io/controle_financeiro_e-comercio/"
-       class="link-btn"
-       aria-label="Planilha de controle para e-commerce">
+    <a href="https://agilcris.github.io/controle_financeiro_e-comercio/" class="link-btn">
       <span class="link-icon">📊</span>
       <div class="link-body">
         <strong class="link-label">Planilha E-commerce</strong>
-        <span class="link-sub">Lucro real no Shopee e Mercado Livre</span>
+        <span class="link-sub">Lucro real Shopee e Mercado Livre</span>
       </div>
-      <span class="link-arrow">›</span>
     </a>
 
-    <!-- 3. WHATSAPP (CANAL DE VENDAS) -->
-    <a href="https://wa.me/5511980394632?text=Oi%20Cris%2C%20vim%20pelo%20Instagram%21%20Quero%20saber%20mais."
-       class="link-btn"
-       aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5511980394632" class="link-btn">
       <span class="link-icon">💬</span>
       <div class="link-body">
         <strong class="link-label">Falar no WhatsApp</strong>
-        <span class="link-sub">Atendimento direto e rápido</span>
+        <span class="link-sub">Atendimento direto e personalizado</span>
       </div>
-      <span class="link-arrow">›</span>
     </a>
 
     <div class="section-label">Serviços Especializados</div>
 
-    <!-- 4. BAIXA DE EMPRESAS -->
-    <a href="https://agilcris.github.io/fechamento_empresas-XLSX/"
-       class="link-btn"
-       aria-label="Baixa de empresas e regularização de CPF">
+    <a href="https://agilcris.github.io/fechamento_empresas-XLSX/" class="link-btn">
       <span class="link-icon">⚖️</span>
       <div class="link-body">
         <strong class="link-label">Baixa de Empresas</strong>
-        <span class="link-sub">Encerramento de CNPJ · Regularização de CPF</span>
+        <span class="link-sub">Encerramento de CNPJ e Regularização</span>
       </div>
-      <span class="link-arrow">›</span>
     </a>
 
-    <!-- 5. APOIO FINANCEIRO (NOME REFORMULADO) -->
-    <a href="https://agilcris.github.io/controle-vicio-em-apostas/"
-       class="link-btn"
-       aria-label="Apoio para reeducação financeira">
+    <a href="https://agilcris.github.io/controle-vicio-em-apostas/" class="link-btn">
       <span class="link-icon">🛡️</span>
       <div class="link-body">
         <strong class="link-label">Reeducação Financeira</strong>
-        <span class="link-sub">Saia das dívidas · Metas reais · Transformação</span>
+        <span class="link-sub">Transformação e Metas Reais</span>
       </div>
-      <span class="link-arrow">›</span>
     </a>
+  </div>
 
-    <!-- 6. PROVA SOCIAL (NOVO LINK) -->
-    <a href="https://wa.me/5511980394632?text=Quero%20ver%20depoimentos%20de%20clientes"
-       class="link-btn"
-       aria-label="Depoimentos de clientes">
-      <span class="link-icon">⭐</span>
-      <div class="link-body">
-        <strong class="link-label">Resultados Reais</strong>
-        <span class="link-sub">Veja quem já transformou suas finanças comigo</span>
-      </div>
-    
-  <div class="divider">Por que confiar na AgilCRis</div>
   <div class="trust-grid">
     <div class="trust-item">🤝<span class="trust-label">Profissional</span></div>
     <div class="trust-item">🎯<span class="trust-label">Soluções Reais</span></div>
@@ -340,6 +183,7 @@
     <p>Comece hoje a <strong>sair dos juros</strong>. Nossa equipe está pronta para te guiar. ✨</p>
     <a href="https://wa.me/5511980394632" class="cta-final-btn">💬 Falar com um representante</a>
   </div>
+
   <div class="footer">AgilCRis Consultoria · @agilcris_gestao</div>
 </div>
 </body>
